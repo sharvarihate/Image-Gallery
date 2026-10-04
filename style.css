@@ -1,0 +1,27 @@
+:root{--bg:#14171a;--ink:#eef1f3;--accent:#e9b44c;--card:#1f2428}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;padding:2rem 1rem}
+header{max-width:1100px;margin:0 auto 2rem;text-align:center}
+h1{font-size:clamp(1.8rem,5vw,3rem);font-weight:400;letter-spacing:.02em;margin-bottom:1.2rem}
+.filters{display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap}
+.filters button{background:none;border:1px solid #444b52;color:var(--ink);padding:.5rem 1.1rem;border-radius:999px;font:inherit;cursor:pointer;transition:.3s}
+.filters button:hover,.filters button.active{background:var(--accent);border-color:var(--accent);color:#14171a}
+.gallery{max-width:1100px;margin:auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem}
+.item{position:relative;overflow:hidden;border-radius:6px;aspect-ratio:4/3;cursor:pointer;background:var(--card);transition:opacity .4s,transform .4s}
+.item.hide{display:none}
+.item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.item:hover img,.item:focus-visible img{transform:scale(1.08)}
+.item span{position:absolute;inset:auto 0 0 0;padding:.8rem;background:linear-gradient(transparent,rgba(0,0,0,.8));transform:translateY(100%);transition:transform .35s}
+.item:hover span,.item:focus-visible span{transform:none}
+.item:focus-visible{outline:3px solid var(--accent)}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:flex;align-items:center;justify-content:center;gap:1rem;z-index:10;animation:fade .3s}
+.lightbox[hidden]{display:none}
+.lightbox figure{max-width:80vw;text-align:center}
+.lightbox img{max-width:100%;max-height:78vh;border-radius:4px}
+.lightbox figcaption{margin-top:.8rem}
+.lightbox button{background:none;border:0;color:var(--ink);font-size:2rem;cursor:pointer;padding:.5rem;transition:color .2s}
+.lightbox button:hover{color:var(--accent)}
+.close{position:absolute;top:1rem;right:1.5rem}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media(max-width:600px){.lightbox figure{max-width:100vw}.nav{position:absolute;bottom:1rem}.prev{left:1rem}.next{right:1rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}

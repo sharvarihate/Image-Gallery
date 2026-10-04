@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Image Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Field Notes: a photo gallery</h1>
+  <nav class="filters" aria-label="Filter images">
+    <button class="active" data-filter="all">All</button>
+    <button data-filter="nature">Nature</button>
+    <button data-filter="city">City</button>
+    <button data-filter="animals">Animals</button>
+  </nav>
+</header>
+<main class="gallery" id="gallery"></main>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="close" aria-label="Close">&times;</button>
+  <button class="nav prev" aria-label="Previous image">&#10094;</button>
+  <figure>
+    <img id="lb-img" alt="">
+    <figcaption id="lb-cap"></figcaption>
+  </figure>
+  <button class="nav next" aria-label="Next image">&#10095;</button>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
